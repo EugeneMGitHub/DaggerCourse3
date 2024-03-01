@@ -11,6 +11,7 @@ import dagger.Provides
 import retrofit2.Retrofit
 import retrofit2.create
 import javax.inject.Inject
+import javax.inject.Named
 import javax.inject.Qualifier
 
 @Component(modules = [AppModule::class])
@@ -28,6 +29,7 @@ class AppModule
 class NetworkModule {
 
     @Provides
+//    @Named("prod")
     fun provideProductionNewsService(): NewsService {
         val retrofit = Retrofit.Builder()
             .baseUrl("https://androidbrodcast.dev")
@@ -36,6 +38,7 @@ class NetworkModule {
     }
 
     @Provides
+//    @Named("stage")
     @Stage
     fun provideStageNewsService(): NewsService {
         val retrofit = Retrofit.Builder()
@@ -54,6 +57,11 @@ class NetworkModule {
     fun provideRetrofitClassObject() : RetrofitClass {
         return RetrofitClass()
     }
+
+//    @Provides
+//    fun provideAnotherRetrofitClass() : RetrofitClass {
+//        return RetrofitClass()
+//    }
 
 
 }

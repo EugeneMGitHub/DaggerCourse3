@@ -2,6 +2,7 @@ package com.example.daggerp3organizaciamodulei.data
 
 import com.example.daggerp3organizaciamodulei.Stage
 import javax.inject.Inject
+import javax.inject.Named
 
 interface NewsRepository {
 
@@ -10,6 +11,7 @@ interface NewsRepository {
 
 class NewsRepositoryImpl @Inject constructor(
 //    @Stage private val newsService: NewsService,
+//    @param: Named(value = "prod")
     private val newsService: NewsService,
     private val analytics: Analytics,
 ) : NewsRepository {

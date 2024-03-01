@@ -23,6 +23,7 @@ import com.example.daggerp3organizaciamodulei.ui.theme.DaggerP3OrganizaciaModule
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
+import dagger.internal.Provider
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.SharingStarted
@@ -52,6 +53,27 @@ class MainActivity : ComponentActivity() {
     private val someViewModel: SomeViewModel by viewModels {
         factoryForFactory.create(newsId = "random News")
     }
+
+
+/** ПРИЧЕМ Lazy и Provider не работаю с зависимостями, которые используют Assisted Inject*/
+
+/**With LAZY*/
+//    @Inject
+//    lateinit var factoryForFactory: dagger.Lazy<SomeViewModel.Factory.FactoryForFactory>
+//    private val someViewModel: SomeViewModel by viewModels {
+//        factoryForFactory.get().create(newsId = "random News with LAzy  ")
+//    }
+
+/** With Provider */
+//    @Inject
+//    lateinit var factoryForFactory: Provider<SomeViewModel.Factory.FactoryForFactory>
+//    private val someViewModel: SomeViewModel by viewModels {
+//        factoryForFactory.get().create(newsId = "random News with Provider  ")
+//    }
+
+
+
+
 
 
 
